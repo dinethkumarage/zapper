@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ZAPPER - Background Remover</title>
+    <link rel="stylesheet" href="bg.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo">ZAPPER</div>
+            <ul>
+                <li><a href="#home" class="active">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li>
+                    <button id="themeToggle" aria-label="Toggle theme">
+                        <span class="sun">☀️</span>
+                        <span class="moon">🌙</span>
+                    </button>
+                </li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section id="home" class="page active">
+            <h1 class="animate-pop-in">Vanish Backgrounds in a Snap</h1>
+            <div class="tool-container animate-slide-up">
+                <div class="upload-container">
+                    <input type="file" id="imageInput" accept="image/*">
+                    <label for="imageInput" class="upload-button">Select Your Image</label>
+                </div>
+                <div id="imagePreview" class="image-preview"></div>
+                <button id="processButton" class="process-button" disabled>Zap the Background</button>
+                <div id="result" class="result">
+                    <img id="processedImage" src="" alt="Processed Image">
+                    <a id="downloadLink" class="download-button" download="backgroundless_image.png">Download the zapped image!</a>
+                </div>
+            </div>
+        </section>
+
+        <section id="about" class="page">
+            <h1 class="animate-pop-in">About ZAPPER</h1>
+            <div class="about-content animate-slide-up">
+                <p>ZAPPER is your magical portal to crystal-clear images. Our AI wizardry removes backgrounds faster than you can say "Abracadabra!"</p>
+                <h2>Why Choose Us?</h2>
+                <ul>
+                    <li>🚀 Lightning-fast background removal</li>
+                    <li>🎭 No sign-up shenanigans</li>
+                    <li>💸 Free as a bird (for now)</li>
+                    <li>🖼️ Supports all your favorite image formats</li>
+                </ul>
+                <p>Whether you're a meme master, an e-commerce guru, or just someone who hates cluttered photos, ZAPPER is your new best friend. Give it a whirl!</p>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 ZAPPER. Making backgrounds disappear since breakfast.</p>
+    </footer>
+    <script src="bg.js"></script>
+</body>
+</html>

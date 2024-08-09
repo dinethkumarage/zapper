@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ZAPPER</title>
+    <style>
+        :root {
+            --bg: #0d1117;
+            --text: #c9d1d9;
+            --border: #30363d;
+            --accent: #58a6ff;
+        }
+
+        [data-theme="light"] {
+            --bg: #ffffff;
+            --text: #24292e;
+            --border: #e1e4e8;
+            --accent: #0366d6;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Noto Sans', Helvetica, Arial, sans-serif;
+            background-color: var(--bg);
+            color: var(--text);
+            margin: 0;
+            padding: 20px;
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        h1 {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .welcome-msg {
+            text-align: center;
+            font-size: 1.2em;
+            margin-bottom: 30px;
+        }
+
+        .ai-prompt {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 30px;
+        }
+
+        .ai-prompt input {
+            width: 60%;
+            padding: 10px;
+            font-size: 1em;
+            background-color: var(--bg);
+            color: var(--text);
+            border: 1px solid var(--border);
+            border-radius: 6px;
+        }
+
+        .tools-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+        }
+
+        .tool-box {
+            border: 1px solid var(--border);
+            border-radius: 6px;
+            padding: 20px;
+            text-align: center;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .tool-box:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .tool-box h3 {
+            margin-top: 0;
+            color: var(--accent);
+        }
+
+        .tool-button {
+            background-color: var(--accent);
+            color: var(--bg);
+            border: none;
+            padding: 10px 20px;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .tool-button:hover {
+            opacity: 0.9;
+        }
+
+        .theme-toggle-wrapper {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            display: flex;
+            align-items: center;
+        }
+
+        .theme-toggle {
+            position: relative;
+            display: inline-block;
+            width: 60px;
+            height: 34px;
+        }
+
+        .theme-toggle input {
+            opacity: 0;
+            width: 0;
+            height: 0;
+        }
+
+        .slider {
+            position: absolute;
+            cursor: pointer;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: #ccc;
+            transition: .4s;
+            border-radius: 34px;
+        }
+
+        .slider:before {
+            position: absolute;
+            content: "";
+            height: 26px;
+            width: 26px;
+            left: 4px;
+            bottom: 4px;
+            background-color: white;
+            transition: .4s;
+            border-radius: 50%;
+        }
+
+        input:checked + .slider {
+            background-color: var(--accent);
+        }
+
+        input:checked + .slider:before {
+            transform: translateX(26px);
+        }
+
+        .theme-label {
+            margin-right: 10px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <div class="theme-toggle-wrapper">
+        <span class="theme-label">Normie Mode</span>
+        <label class="theme-toggle">
+            <input type="checkbox" id="themeToggle">
+            <span class="slider"></span>
+        </label>
+    </div>
+    <div class="container">
+        <h1>ZAPPER TOOLS: Because Normie Tools Are Too Mainstream</h1>
+        <div class="welcome-msg">Welcome to the dankest toolkit in the Internet!</div>
+        <div class="ai-prompt">
+            <input type="text" placeholder="Ask the meme lord AI for wisdom...">
+        </div>
+        <div class="tools-grid">
+            <div class="tool-box">
+                <h3>Background Yeeter</h3>
+                <p>Yeet that background into the void.</p>
+                <button class="tool-button" data-tool="background-remover" > <a href="background.html"></a> Yeet It</button>
+            </div>
+            <div class="tool-box">
+                <h3>Code Beautifier 9000</h3>
+                <p>Make your code look prettier than a unicorn.</p>
+                <button class="tool-button" data-tool="code-formatter">Beautify</button>
+            </div>
+            <div class="tool-box">
+                <h3>JSON Whisperer</h3>
+                <p>Tame wild JSONs with a single click.</p>
+                <button class="tool-button" data-tool="json-validator">Whisper</button>
+            </div>
+            <div class="tool-box">
+                <h3>Password Conjurer</h3>
+                <p>Summon passwords even hackers fear.</p>
+                <button class="tool-button" data-tool="password-generator">Conjure</button>
+            </div>
+            <div class="tool-box">
+                <h3>Color Bender</h3>
+                <p>Bend colors to your will like a true master.</p>
+                <button class="tool-button" data-tool="color-picker">Bend It</button>
+            </div>
+            <div class="tool-box">
+                <h3>Password Conjurer</h3>
+                <p>Summon passwords even hackers fear.</p>
+                <button class="tool-button" data-tool="password-generator">Conjure</button>
+            </div>
+            <div class="tool-box">
+                <h3>Password Conjurer</h3>
+                <p>Summon passwords even hackers fear.</p>
+                <button class="tool-button" data-tool="password-generator">Conjure</button>
+            </div>
+            <div class="tool-box">
+                <h3>Password Conjurer</h3>
+                <p>Summon passwords even hackers fear.</p>
+                <button class="tool-button" data-tool="password-generator">Conjure</button>
+            </div>
+            <div class="tool-box">
+                <h3>Password Conjurer</h3>
+                <p>Summon passwords even hackers fear.</p>
+                <button class="tool-button" data-tool="password-generator">Conjure</button>
+            </div>
+            <div class="tool-box">
+                <h3>Password Conjurer</h3>
+                <p>Summon passwords even hackers fear.</p>
+                <button class="tool-button" data-tool="password-generator">Conjure</button>
+            </div>
+            <div class="tool-box">
+                <h3>Password Conjurer</h3>
+                <p>Summon passwords even hackers fear.</p>
+                <button class="tool-button" data-tool="password-generator">Conjure</button>
+            </div>
+            <div class="tool-box">
+                <h3>Password Conjurer</h3>
+                <p>Summon passwords even hackers fear.</p>
+                <button class="tool-button" data-tool="password-generator">Conjure</button>
+            </div>
+
+            <!-- Add more tool boxes with memetic text -->
+        </div>
+    </div>
+
+    <script>
+        const themeToggle = document.getElementById('themeToggle');
+        const htmlElement = document.documentElement;
+        const themeLabel = document.querySelector('.theme-label');
+
+        themeToggle.addEventListener('change', () => {
+            if (themeToggle.checked) {
+                htmlElement.setAttribute('data-theme', 'light');
+                themeLabel.textContent = 'Dank Mode';
+            } else {
+                htmlElement.setAttribute('data-theme', 'dark');
+                themeLabel.textContent = 'Normie Mode';
+            }
+        });
+
+        document.querySelectorAll('.tool-box').forEach(box => {
+            box.addEventListener('mouseenter', () => {
+                box.style.backgroundColor = 'rgba(88, 166, 255, 0.1)';
+            });
+            box.addEventListener('mouseleave', () => {
+                box.style.backgroundColor = 'transparent';
+            });
+        });
+
+        document.querySelectorAll('.tool-button').forEach(button => {
+            button.addEventListener('click', (e) => {
+                const tool = e.target.getAttribute('data-tool');
+                navigateToTool(tool);
+            });
+        });
+
+        function navigateToTool(tool) {
+            // Replace this with your actual navigation logic
+            console.log(`Navigating to ${tool} page`);
+            // Example: window.location.href = `/${tool}.html`;
+        }
+    </script>
+</body>
+</html>
